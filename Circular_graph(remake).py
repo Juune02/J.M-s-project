@@ -9,6 +9,7 @@ from matplotlib import style
 font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
 rc('font', family=font_name)
 
+print('영원회귀: 블랙서바이벌의 티어 분포표(솔로 기준) \n')
 webpage = urllib.request.urlopen('https://dak.gg/bser/statistics/tier')
 soup = BeautifulSoup(webpage, 'html.parser')
 tables = soup.select('table')
@@ -16,6 +17,7 @@ table = tables[0]
 table_html = str(table)
 table_df_list = pd.read_html(table_html)
 table_df = table_df_list[0]
+print(table_df)
 list1 = table_df['Tier'].tolist()
 list2 = table_df['Percentage'].tolist()
 L=''.join(list2)
